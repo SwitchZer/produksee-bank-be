@@ -24,7 +24,7 @@ app.use((error, req, res, next) => {
 app.use("/v1", routes);
 
 app.get("/", (req, res, next) => {
-  res.send("Peworld API is Running and Ready to Use");
+  res.send("Bank Saving System API is Running and Ready to Use");
 });
 
 app.listen(PORT, () => {
