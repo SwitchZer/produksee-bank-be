@@ -9,12 +9,13 @@ const {
 } = require("../models/account");
 
 const createAccounts = async (req, res, next) => {
-  const { packet, customer_id, deposito_id } = req.body;
+  const { packet, balance, customer_id, deposito_id } = req.body;
   const Id = uuidv4();
 
   const data = {
     id: Id,
     packet,
+    balance,
     customer_id,
     deposito_id,
   };

@@ -36,7 +36,22 @@ const readTransaction = async (req, res, next) => {
   }
 };
 
+const readPerIdAccounts = async (req, res, next) => {
+  const id = req.params.id;
+  try {
+    const { rows } = await getPerIdAccounts(id);
+    if (rows == 0) {
+      return next(new newError.NotFound("Transaction Not Found"));
+    }
+    response(res, rows, 200, "Get Transaction Detail Success!");
+  } catch (error) {
+    console.log(error);
+    next(new newError.InternalServerError());
+  }
+};
+
 module.exports = {
   createTransaction,
   readTransaction,
+  readPerIdAccounts,
 };

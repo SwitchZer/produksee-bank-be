@@ -2,8 +2,15 @@ const pool = require("../configs/db");
 
 const postAccounts = (data) => {
   return pool.query(
-    `INSERT INTO accounts (id, packet, customer_id, deposito_id, created_at) VALUES ($1, $2, $3, $4, NOW())`,
-    [data.id, data.packet, data.customer_id, data.deposito_id]
+    `INSERT INTO accounts (id, packet, balance, customer_id, deposito_id, created_at) VALUES ($1, $2, $3, $4, $5, NOW())`,
+    [data.id, data.packet, data.balance, data.customer_id, data.deposito_id]
+  );
+};
+
+const postDeposit = (data) => {
+  return pool.query(
+    `INSERT INTO transaction (id, packet, balance, customer_id, deposito_id, created_at) VALUES ($1, $2, $3, $4, $5, NOW())`,
+    [data.id, data.packet, data.balance, data.customer_id, data.deposito_id]
   );
 };
 
