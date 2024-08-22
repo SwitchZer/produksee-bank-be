@@ -75,16 +75,13 @@ const readAccountsPerCustomer = async (req, res, next) => {
 
 const updateAccounts = async (req, res, next) => {
   const id = req.params.id;
-  const { packet, balance, customer_id, deposito_id } = req.body;
+  const { balance } = req.body;
   const data = {
-    packet,
     balance,
-    customer_id,
-    deposito_id,
   };
   try {
     await putAccounts(data, id);
-    response(res, data, 200, `Accounts Deleted!!!`);
+    response(res, data, 200, `Balance Updated`);
   } catch (error) {
     console.log(error);
     next(new newError.InternalServerError());
