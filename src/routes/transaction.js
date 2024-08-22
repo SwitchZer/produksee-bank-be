@@ -1,11 +1,10 @@
 const express = require("express");
+const {
+  createTransaction,
+  readTransaction,
+} = require("../controllers/transaction");
 const router = express.Router();
 
-router
-  .post("/", createCustomers)
-  .get("/", readCustomers)
-  .get("/:id", readDetailCustomers)
-  .put("/:id", updateCustomers)
-  .delete("/:id", deleteCustomers);
+router.post("/", createTransaction).get("/", readTransaction);
 
 module.exports = router;
