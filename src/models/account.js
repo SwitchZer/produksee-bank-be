@@ -40,7 +40,7 @@ const getAccountsPerCustomer = (id) => {
       FROM customers c
       JOIN accounts a ON c.id = a.customer_id
       JOIN deposito d ON a.deposito_id = d.id
-      WHERE id = $1`,
+      WHERE c.id = $1`,
     [id]
   );
 };

@@ -6,6 +6,7 @@ const {
   getDetailAccounts,
   dropAccounts,
   postAccounts,
+  getAccountsPerCustomer,
 } = require("../models/account");
 
 const createAccounts = async (req, res, next) => {
