@@ -51,7 +51,7 @@ const getDetailAccounts = (id) => {
 
 const putAccounts = (data, id) => {
   return pool.query(
-    "UPDATE accounts SET balance = $1 updated_at = NOW() WHERE id = $1",
+    "UPDATE accounts SET balance = $1, updated_at = NOW() WHERE id = $1",
     [data.balance, id]
   );
 };
