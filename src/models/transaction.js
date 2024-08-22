@@ -1,6 +1,6 @@
 const pool = require("../configs/db");
 
-const postDeposito = (data) => {
+const postTransaction = (data) => {
   return pool.query(
     `INSERT INTO transaction (id, accounts_id, type, nominal, created_at) VALUES ($1, $2, $3, $4, NOW())`,
     [data.id, data.accounts_id, data.type, data.nominal]
@@ -16,7 +16,7 @@ const getPerIdAccounts = async (id) => {
 };
 
 module.exports = {
-  postDeposito,
+  postTransaction,
   getTransaction,
   getPerIdAccounts,
 };

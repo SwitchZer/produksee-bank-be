@@ -1,6 +1,7 @@
 const { v4: uuidv4 } = require("uuid");
 const { response } = require("../helpers/common");
 const newError = require("http-errors");
+const { postTransaction } = require("../models/transaction");
 
 const createTransaction = async (req, res, next) => {
   const { accounts_id, type, nominal } = req.body;
