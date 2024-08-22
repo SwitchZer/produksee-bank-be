@@ -72,6 +72,24 @@ const readAccountsPerCustomer = async (req, res, next) => {
   }
 };
 
+const updateAccounts = async (req, res, next) => {
+  const id = req.params.id;
+  const { packet, balance, customer_id, deposito_id } = req.body;
+  const data = {
+    packet,
+    balance,
+    customer_id,
+    deposito_id,
+  };
+  try {
+    await putAccounts(data, id);
+    response(res, data, 200, `Accounts Deleted!!!`);
+  } catch (error) {
+    console.log(error);
+    next(new newError.InternalServerError());
+  }
+};
+
 const deleteAccounts = async (req, res, next) => {
   const id = req.params.id;
   try {
@@ -88,5 +106,6 @@ module.exports = {
   readAccounts,
   readDetailAccounts,
   readAccountsPerCustomer,
+  updateAccounts,
   deleteAccounts,
 };
